@@ -107,7 +107,7 @@ class FeatureExtractor:
             features[f'{prefix}max_closeness'] = np.max(closeness)
             
         except Exception as e:
-            print(f"⚠️  Error calculando centralidad: {e}")
+            print(f"  Error calculando centralidad: {e}")
             features[f'{prefix}avg_betweenness'] = 0
             features[f'{prefix}max_betweenness'] = 0
             features[f'{prefix}std_betweenness'] = 0
@@ -275,7 +275,7 @@ class FeatureExtractor:
         Returns:
             Diccionario con todas las features
         """
-        print(f"\n🔧 Extrayendo features para {team}...")
+        print(f"\n Extrayendo features para {team}...")
         
         # Filtrar por equipo
         team_passes = passes[passes['team'] == team].copy()
@@ -307,9 +307,9 @@ class FeatureExtractor:
                 temporal_features = self.extract_temporal_features(dynamic_graph, prefix='temporal_')
                 all_features.update(temporal_features)
             except Exception as e:
-                print(f"   ⚠️  Error en features temporales: {e}")
+                print(f"    Error en features temporales: {e}")
         
-        print(f"✅ Total de features extraídas: {len(all_features)}")
+        print(f" Total de features extraídas: {len(all_features)}")
         
         return all_features
     
@@ -328,9 +328,9 @@ class FeatureExtractor:
         Returns:
             DataFrame con features de todos los partidos
         """
-        print("\n" + "="*60)
-        print("🏗️  CONSTRUYENDO DATASET DE FEATURES")
-        print("="*60)
+        
+        print("  CONSTRUYENDO DATASET DE FEATURES")
+        
         
         all_features = []
         
@@ -349,7 +349,7 @@ class FeatureExtractor:
                 all_features.append(features)
                 
             except Exception as e:
-                print(f"   ❌ Error procesando partido: {e}")
+                print(f"   Error procesando partido: {e}")
                 continue
         
         # Crear DataFrame
@@ -359,9 +359,9 @@ class FeatureExtractor:
         cols = ['match_id', 'team'] + [col for col in df.columns if col not in ['match_id', 'team']]
         df = df[cols]
         
-        print("\n" + "="*60)
-        print(f"✅ DATASET CREADO: {len(df)} instancias, {len(df.columns)} features")
-        print("="*60 + "\n")
+        
+        print(f" DATASET CREADO: {len(df)} instancias, {len(df.columns)} features")
+        
         
         self.features = df
         self.feature_names = [col for col in df.columns if col not in ['match_id', 'team']]
@@ -389,7 +389,7 @@ class FeatureExtractor:
         
         missing = df[label_column].isna().sum()
         if missing > 0:
-            print(f"⚠️  {missing} instancias sin etiqueta")
+            print(f"  {missing} instancias sin etiqueta")
         
         return df
     
@@ -419,7 +419,7 @@ class FeatureExtractor:
                     df_normalized[col] = (df[col] - mean) / std
                     normalization_params[col] = {'mean': mean, 'std': std}
         
-        print(f"✅ {len(normalization_params)} features normalizadas")
+        print(f" {len(normalization_params)} features normalizadas")
         
         return df_normalized, normalization_params
     
@@ -443,13 +443,13 @@ class FeatureExtractor:
         X = df.drop(columns=[col for col in exclude_cols if col in df.columns])
         y = df[target_col] if target_col in df.columns else None
         
-        print(f"✅ Datos preparados: X shape = {X.shape}")
+        print(f" Datos preparados: X shape = {X.shape}")
         if y is not None:
             print(f"   Distribución de clases: {y.value_counts().to_dict()}")
         
         return X, y
     
-    def export_features(self, df: pd.DataFrame, filename: str = 'data/processed/features_dataset.csv'):
+    def export_features(self, df: pd.DataFrame, filename: str = None):
         """
         Exporta dataset de features a CSV.
         
@@ -457,11 +457,20 @@ class FeatureExtractor:
             df: DataFrame con features
             filename: Ruta del archivo de salida
         """
+        
+        if filename is None:
+            # Usar ruta absoluta
+            current_file = os.path.abspath(__file__)
+            project_root = os.path.dirname(os.path.dirname(os.path.dirname(current_file)))
+            filename = os.path.join(project_root, 'data', 'processed', 'features_dataset.csv')
+        
         import os
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         df.to_csv(filename, index=False)
+    
+        print(f" Dataset exportado a: {filename}")
         
-        print(f"💾 Dataset exportado a: {filename}")
+        
     
     def print_feature_summary(self, df: pd.DataFrame):
         """
@@ -470,8 +479,8 @@ class FeatureExtractor:
         Args:
             df: DataFrame con features
         """
-        print("\n📊 RESUMEN DEL DATASET DE FEATURES")
-        print("="*60)
+        print("\n RESUMEN DEL DATASET DE FEATURES")
+        
         print(f"Número de instancias: {len(df)}")
         print(f"Número de features: {len([col for col in df.columns if col not in ['match_id', 'team', 'label']])}")
         print(f"\nColumnas: {df.columns.tolist()}")
@@ -479,12 +488,12 @@ class FeatureExtractor:
         print(df.dtypes.value_counts())
         print(f"\nValores nulos por columna:")
         print(df.isnull().sum()[df.isnull().sum() > 0])
-        print("="*60 + "\n")
+        
 
 
 if __name__ == "__main__":
     # Ejemplo de uso
-    print("🧪 Probando FeatureExtractor...\n")
+    print(" Probando FeatureExtractor...\n")
     
     import sys
     import os
@@ -511,7 +520,7 @@ if __name__ == "__main__":
     
     for idx, match_row in barcelona_matches.iterrows():
         match_id = match_row['match_id']
-        print(f"\n📥 Cargando partido {match_id}: {match_row['home_team']} vs {match_row['away_team']}")
+        print(f"\n Cargando partido {match_id}: {match_row['home_team']} vs {match_row['away_team']}")
         
         events, _ = loader.load_match_data(match_id)
         passes_clean = preprocessor.preprocess_full_pipeline(events)
@@ -527,7 +536,7 @@ if __name__ == "__main__":
     extractor.print_feature_summary(df_features)
     
     # Mostrar primeras filas
-    print("📋 Primeras instancias del dataset:")
+    print(" Primeras instancias del dataset:")
     print(df_features.head())
     
     # Exportar

@@ -38,7 +38,7 @@ class PassGraph:
         Returns:
             Grafo dirigido de NetworkX
         """
-        print(f"\n🔨 Construyendo grafo de pases (peso: {self.weight_type})...")
+        print(f"\n Construyendo grafo de pases (peso: {self.weight_type})...")
         
         # Filtrar por equipo si se especifica
         if team:
@@ -72,7 +72,7 @@ class PassGraph:
         
         self.graph = G
         
-        print(f"✅ Grafo construido:")
+        print(f" Grafo construido:")
         print(f"   - Nodos (jugadores): {G.number_of_nodes()}")
         print(f"   - Aristas (conexiones): {G.number_of_edges()}")
         
@@ -91,7 +91,7 @@ class PassGraph:
         Calcula pesos basados en tasa de éxito.
         """
         if 'pass_success' not in passes.columns:
-            print("⚠️  'pass_success' no disponible, usando frecuencia")
+            print("  'pass_success' no disponible, usando frecuencia")
             return self._calculate_frequency_weights(passes)
         
         grouped = passes.groupby(['player', 'pass_recipient'])['pass_success'].agg(['sum', 'count'])
@@ -105,7 +105,7 @@ class PassGraph:
         Calcula pesos basados en distancia promedio.
         """
         if 'pass_distance' not in passes.columns:
-            print("⚠️  'pass_distance' no disponible, usando frecuencia")
+            print("  'pass_distance' no disponible, usando frecuencia")
             return self._calculate_frequency_weights(passes)
         
         avg_distance = passes.groupby(['player', 'pass_recipient'])['pass_distance'].mean()
@@ -230,7 +230,7 @@ class PassGraph:
         import os
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         nx.write_graphml(self.graph, filename)
-        print(f"💾 Grafo guardado en: {filename}")
+        print(f" Grafo guardado en: {filename}")
     
     def load_graph(self, filename: str):
         """
@@ -240,7 +240,7 @@ class PassGraph:
             filename: Ruta del archivo
         """
         self.graph = nx.read_graphml(filename)
-        print(f"📂 Grafo cargado desde: {filename}")
+        print(f" Grafo cargado desde: {filename}")
         return self.graph
     
     def get_graph_summary(self) -> Dict:
@@ -270,20 +270,20 @@ class PassGraph:
         """
         summary = self.get_graph_summary()
         
-        print("\n📊 RESUMEN DEL GRAFO")
-        print("="*60)
+        print("\n RESUMEN DEL GRAFO")
+        
         print(f"Nodos (jugadores): {summary['num_nodes']}")
         print(f"Aristas (conexiones): {summary['num_edges']}")
         print(f"Densidad: {summary['density']:.4f}")
         print(f"Grado promedio: {summary['avg_degree']:.2f}")
         print(f"Conectado: {'Sí' if summary['is_connected'] else 'No'}")
         print(f"Componentes: {summary['num_components']}")
-        print("="*60 + "\n")
+        
 
 
 if __name__ == "__main__":
     # Ejemplo de uso
-    print("🧪 Probando PassGraph...\n")
+    print(" Probando PassGraph...\n")
     
     import sys
     import os
@@ -304,7 +304,7 @@ if __name__ == "__main__":
     match_id = barcelona_matches.iloc[0]['match_id']
     match_info = barcelona_matches.iloc[0]
     
-    print(f"🎯 Partido: {match_info['home_team']} vs {match_info['away_team']}\n")
+    print(f" Partido: {match_info['home_team']} vs {match_info['away_team']}\n")
     
     events, _ = loader.load_match_data(match_id)
     
@@ -319,7 +319,7 @@ if __name__ == "__main__":
     pass_graph.print_summary()
     
     # Top conexiones
-    print("🔗 Top 10 conexiones más fuertes:")
+    print(" Top 10 conexiones más fuertes:")
     print(pass_graph.get_top_connections(10))
     
     # Guardar

@@ -1,0 +1,545 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d3" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d2" for="node" attr.name="passes_received" attr.type="long" />
+  <key id="d1" for="node" attr.name="passes_made" attr.type="long" />
+  <key id="d0" for="node" attr.name="team" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="Anssumane Fati">
+      <data key="d0">Barcelona</data>
+      <data key="d1">39</data>
+      <data key="d2">59</data>
+    </node>
+    <node id="Antoine Griezmann">
+      <data key="d0">Barcelona</data>
+      <data key="d1">36</data>
+      <data key="d2">47</data>
+    </node>
+    <node id="Francisco António Machado Mota de Castro Trincão">
+      <data key="d0">Barcelona</data>
+      <data key="d1">39</data>
+      <data key="d2">49</data>
+    </node>
+    <node id="Frenkie de Jong">
+      <data key="d0">Barcelona</data>
+      <data key="d1">102</data>
+      <data key="d2">95</data>
+    </node>
+    <node id="Gerard Piqué Bernabéu">
+      <data key="d0">Barcelona</data>
+      <data key="d1">101</data>
+      <data key="d2">81</data>
+    </node>
+    <node id="Jordi Alba Ramos">
+      <data key="d0">Barcelona</data>
+      <data key="d1">52</data>
+      <data key="d2">42</data>
+    </node>
+    <node id="Lionel Andrés Messi Cuccittini">
+      <data key="d0">Barcelona</data>
+      <data key="d1">69</data>
+      <data key="d2">84</data>
+    </node>
+    <node id="Miralem Pjanić">
+      <data key="d0">Barcelona</data>
+      <data key="d1">84</data>
+      <data key="d2">82</data>
+    </node>
+    <node id="Pedro González López">
+      <data key="d0">Barcelona</data>
+      <data key="d1">50</data>
+      <data key="d2">49</data>
+    </node>
+    <node id="Sergi Roberto Carnicer">
+      <data key="d0">Barcelona</data>
+      <data key="d1">104</data>
+      <data key="d2">96</data>
+    </node>
+    <node id="Sergio Busquets i Burgos">
+      <data key="d0">Barcelona</data>
+      <data key="d1">48</data>
+      <data key="d2">45</data>
+    </node>
+    <node id="Clément Lenglet">
+      <data key="d0">Barcelona</data>
+      <data key="d1">55</data>
+      <data key="d2">50</data>
+    </node>
+    <node id="Ousmane Dembélé">
+      <data key="d0">Barcelona</data>
+      <data key="d1">23</data>
+      <data key="d2">32</data>
+    </node>
+    <node id="Sergino Dest">
+      <data key="d0">Barcelona</data>
+      <data key="d1">23</data>
+      <data key="d2">21</data>
+    </node>
+    <node id="Martin Braithwaite Christensen">
+      <data key="d0">Barcelona</data>
+      <data key="d1">1</data>
+      <data key="d2">2</data>
+    </node>
+    <node id="Norberto Murara Neto">
+      <data key="d0">Barcelona</data>
+      <data key="d1">24</data>
+      <data key="d2">16</data>
+    </node>
+    <edge source="Anssumane Fati" target="Antoine Griezmann">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Francisco António Machado Mota de Castro Trincão">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Frenkie de Jong">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Gerard Piqué Bernabéu">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Jordi Alba Ramos">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">7</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Miralem Pjanić">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Pedro González López">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Sergi Roberto Carnicer">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Anssumane Fati" target="Sergio Busquets i Burgos">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Anssumane Fati">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Clément Lenglet">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Frenkie de Jong">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Gerard Piqué Bernabéu">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Jordi Alba Ramos">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Miralem Pjanić">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Ousmane Dembélé">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Pedro González López">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Sergi Roberto Carnicer">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Sergino Dest">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Antoine Griezmann" target="Sergio Busquets i Burgos">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Francisco António Machado Mota de Castro Trincão" target="Antoine Griezmann">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Francisco António Machado Mota de Castro Trincão" target="Gerard Piqué Bernabéu">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Francisco António Machado Mota de Castro Trincão" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Francisco António Machado Mota de Castro Trincão" target="Miralem Pjanić">
+      <data key="d3">9</data>
+    </edge>
+    <edge source="Francisco António Machado Mota de Castro Trincão" target="Pedro González López">
+      <data key="d3">7</data>
+    </edge>
+    <edge source="Francisco António Machado Mota de Castro Trincão" target="Sergi Roberto Carnicer">
+      <data key="d3">14</data>
+    </edge>
+    <edge source="Francisco António Machado Mota de Castro Trincão" target="Sergino Dest">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Anssumane Fati">
+      <data key="d3">10</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Antoine Griezmann">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Clément Lenglet">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Francisco António Machado Mota de Castro Trincão">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Gerard Piqué Bernabéu">
+      <data key="d3">17</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Jordi Alba Ramos">
+      <data key="d3">10</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Martin Braithwaite Christensen">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Miralem Pjanić">
+      <data key="d3">17</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Ousmane Dembélé">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Pedro González López">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Sergi Roberto Carnicer">
+      <data key="d3">7</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Sergino Dest">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Frenkie de Jong" target="Sergio Busquets i Burgos">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Antoine Griezmann">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Clément Lenglet">
+      <data key="d3">22</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Francisco António Machado Mota de Castro Trincão">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Frenkie de Jong">
+      <data key="d3">17</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Jordi Alba Ramos">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Miralem Pjanić">
+      <data key="d3">10</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Norberto Murara Neto">
+      <data key="d3">9</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Ousmane Dembélé">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Pedro González López">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Sergi Roberto Carnicer">
+      <data key="d3">21</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Sergino Dest">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Gerard Piqué Bernabéu" target="Sergio Busquets i Burgos">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Anssumane Fati">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Antoine Griezmann">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Clément Lenglet">
+      <data key="d3">9</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Francisco António Machado Mota de Castro Trincão">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Frenkie de Jong">
+      <data key="d3">9</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Gerard Piqué Bernabéu">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Miralem Pjanić">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Norberto Murara Neto">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Pedro González López">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Sergi Roberto Carnicer">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Jordi Alba Ramos" target="Sergio Busquets i Burgos">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Anssumane Fati">
+      <data key="d3">13</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Antoine Griezmann">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Francisco António Machado Mota de Castro Trincão">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Frenkie de Jong">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Gerard Piqué Bernabéu">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Jordi Alba Ramos">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Miralem Pjanić">
+      <data key="d3">11</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Ousmane Dembélé">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Pedro González López">
+      <data key="d3">10</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Sergi Roberto Carnicer">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Sergino Dest">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Lionel Andrés Messi Cuccittini" target="Sergio Busquets i Burgos">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Anssumane Fati">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Antoine Griezmann">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Francisco António Machado Mota de Castro Trincão">
+      <data key="d3">10</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Frenkie de Jong">
+      <data key="d3">15</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Gerard Piqué Bernabéu">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Jordi Alba Ramos">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">16</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Norberto Murara Neto">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Pedro González López">
+      <data key="d3">7</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Sergi Roberto Carnicer">
+      <data key="d3">12</data>
+    </edge>
+    <edge source="Miralem Pjanić" target="Sergino Dest">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Pedro González López" target="Anssumane Fati">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Pedro González López" target="Antoine Griezmann">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Pedro González López" target="Francisco António Machado Mota de Castro Trincão">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Pedro González López" target="Frenkie de Jong">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Pedro González López" target="Gerard Piqué Bernabéu">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Pedro González López" target="Jordi Alba Ramos">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Pedro González López" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Pedro González López" target="Miralem Pjanić">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Pedro González López" target="Sergi Roberto Carnicer">
+      <data key="d3">12</data>
+    </edge>
+    <edge source="Pedro González López" target="Sergino Dest">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Anssumane Fati">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Antoine Griezmann">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Clément Lenglet">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Francisco António Machado Mota de Castro Trincão">
+      <data key="d3">21</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Frenkie de Jong">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Gerard Piqué Bernabéu">
+      <data key="d3">18</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">9</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Martin Braithwaite Christensen">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Miralem Pjanić">
+      <data key="d3">11</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Norberto Murara Neto">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Ousmane Dembélé">
+      <data key="d3">18</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Pedro González López">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Sergi Roberto Carnicer" target="Sergio Busquets i Burgos">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Anssumane Fati">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Antoine Griezmann">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Clément Lenglet">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Frenkie de Jong">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Gerard Piqué Bernabéu">
+      <data key="d3">7</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Jordi Alba Ramos">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">11</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Ousmane Dembélé">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Sergio Busquets i Burgos" target="Sergi Roberto Carnicer">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Anssumane Fati">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Antoine Griezmann">
+      <data key="d3">6</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Frenkie de Jong">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Gerard Piqué Bernabéu">
+      <data key="d3">11</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Jordi Alba Ramos">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Ousmane Dembélé">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Sergi Roberto Carnicer">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Clément Lenglet" target="Sergio Busquets i Burgos">
+      <data key="d3">9</data>
+    </edge>
+    <edge source="Ousmane Dembélé" target="Antoine Griezmann">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Ousmane Dembélé" target="Frenkie de Jong">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Ousmane Dembélé" target="Gerard Piqué Bernabéu">
+      <data key="d3">3</data>
+    </edge>
+    <edge source="Ousmane Dembélé" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Ousmane Dembélé" target="Sergi Roberto Carnicer">
+      <data key="d3">8</data>
+    </edge>
+    <edge source="Ousmane Dembélé" target="Sergio Busquets i Burgos">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Sergino Dest" target="Anssumane Fati">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Sergino Dest" target="Antoine Griezmann">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Sergino Dest" target="Frenkie de Jong">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Sergino Dest" target="Lionel Andrés Messi Cuccittini">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Sergino Dest" target="Miralem Pjanić">
+      <data key="d3">4</data>
+    </edge>
+    <edge source="Sergino Dest" target="Norberto Murara Neto">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Sergino Dest" target="Pedro González López">
+      <data key="d3">7</data>
+    </edge>
+    <edge source="Martin Braithwaite Christensen" target="Frenkie de Jong">
+      <data key="d3">1</data>
+    </edge>
+    <edge source="Norberto Murara Neto" target="Clément Lenglet">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Norberto Murara Neto" target="Frenkie de Jong">
+      <data key="d3">9</data>
+    </edge>
+    <edge source="Norberto Murara Neto" target="Gerard Piqué Bernabéu">
+      <data key="d3">5</data>
+    </edge>
+    <edge source="Norberto Murara Neto" target="Miralem Pjanić">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Norberto Murara Neto" target="Sergi Roberto Carnicer">
+      <data key="d3">2</data>
+    </edge>
+    <edge source="Norberto Murara Neto" target="Sergino Dest">
+      <data key="d3">1</data>
+    </edge>
+  </graph>
+</graphml>

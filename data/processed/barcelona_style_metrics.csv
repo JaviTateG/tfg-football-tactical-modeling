@@ -1,0 +1,4 @@
+estilo_tactico,density_mean,clustering_mean,betweenness_mean,pagerank_mean,xg_mean,win_rate
+equilibrado,0.6425,0.1611,0.0795,0.0685,1.8214,0.75
+posesion_alta,0.6991,0.1564,0.0808,0.0694,1.8091,0.6901
+posesion_moderada,0.6964,0.1687,0.0807,0.0702,2.1302,0.4667

@@ -33,16 +33,16 @@ class PassPreprocessor:
         Returns:
             DataFrame con pases limpios
         """
-        print(f"📊 Eventos totales: {len(events)}")
+        print(f" Eventos totales: {len(events)}")
         
         # Filtrar solo pases
         passes = events[events['type'] == 'Pass'].copy()
-        print(f"✅ Pases encontrados: {len(passes)}")
+        print(f" Pases encontrados: {len(passes)}")
         
         # Eliminar filas con datos críticos faltantes
         initial_count = len(passes)
         passes = passes.dropna(subset=['player', 'team'])
-        print(f"🧹 Pases después de eliminar nulos en player/team: {len(passes)}")
+        print(f" Pases después de eliminar nulos en player/team: {len(passes)}")
         
         return passes
     
@@ -60,7 +60,7 @@ class PassPreprocessor:
         passes['pass_success'] = passes['pass_outcome'].isna().astype(int)
         
         success_rate = passes['pass_success'].mean() * 100
-        print(f"✅ Precisión de pase: {success_rate:.2f}%")
+        print(f" Precisión de pase: {success_rate:.2f}%")
         
         return passes
     
@@ -75,7 +75,7 @@ class PassPreprocessor:
             DataFrame con columna 'pass_distance'
         """
         if 'location' not in passes.columns or 'pass_end_location' not in passes.columns:
-            print("⚠️  No se pueden calcular distancias (faltan columnas de ubicación)")
+            print("  No se pueden calcular distancias (faltan columnas de ubicación)")
             passes['pass_distance'] = np.nan
             return passes
         
@@ -95,7 +95,7 @@ class PassPreprocessor:
             (passes['pass_distance'] >= self.min_pass_length) & 
             (passes['pass_distance'] <= self.max_pass_length)
         ]
-        print(f"🧹 Pases después de filtrar por distancia: {len(passes)} (eliminados: {before - len(passes)})")
+        print(f" Pases después de filtrar por distancia: {len(passes)} (eliminados: {before - len(passes)})")
         
         return passes
     
@@ -115,14 +115,14 @@ class PassPreprocessor:
         elif 'minute' in passes.columns:
             passes['timestamp'] = passes['minute'] * 60
         else:
-            print("⚠️  No se puede normalizar tiempo (faltan columnas)")
+            print("  No se puede normalizar tiempo (faltan columnas)")
             passes['timestamp'] = np.arange(len(passes))
         
         # Identificar periodo del partido
         if 'period' in passes.columns:
             passes['half'] = passes['period'].apply(lambda x: '1H' if x == 1 else '2H' if x == 2 else 'Extra')
         
-        print(f"✅ Normalización temporal completada")
+        print(f" Normalización temporal completada")
         
         return passes
     
@@ -137,13 +137,13 @@ class PassPreprocessor:
             DataFrame con información de receptor limpia
         """
         if 'pass_recipient' not in passes.columns:
-            print("⚠️  Columna 'pass_recipient' no encontrada")
+            print("  Columna 'pass_recipient' no encontrada")
             return passes
         
         # Eliminar pases sin receptor (no podemos construir grafo)
         initial = len(passes)
         passes = passes.dropna(subset=['pass_recipient'])
-        print(f"🧹 Pases con receptor válido: {len(passes)} (eliminados: {initial - len(passes)})")
+        print(f" Pases con receptor válido: {len(passes)} (eliminados: {initial - len(passes)})")
         
         return passes
     
@@ -162,7 +162,7 @@ class PassPreprocessor:
             return passes
         
         filtered = passes[passes['team'] == team_name].copy()
-        print(f"🎯 Pases de {team_name}: {len(filtered)}")
+        print(f" Pases de {team_name}: {len(filtered)}")
         
         return filtered
     
@@ -181,9 +181,9 @@ class PassPreprocessor:
         Returns:
             DataFrame con pases preprocesados y listos para análisis
         """
-        print("\n" + "="*60)
-        print("🧹 INICIANDO PIPELINE DE PREPROCESAMIENTO")
-        print("="*60 + "\n")
+        
+        print(" INICIANDO PIPELINE DE PREPROCESAMIENTO")
+        
         
         # 1. Filtrar y limpiar pases
         passes = self.clean_passes(events)
@@ -207,9 +207,9 @@ class PassPreprocessor:
         # Resetear índice
         passes = passes.reset_index(drop=True)
         
-        print("\n" + "="*60)
-        print(f"✅ PREPROCESAMIENTO COMPLETADO: {len(passes)} pases válidos")
-        print("="*60 + "\n")
+        
+        print(f" PREPROCESAMIENTO COMPLETADO: {len(passes)} pases válidos")
+        
         
         return passes
     
@@ -246,8 +246,8 @@ class PassPreprocessor:
         """
         stats = self.get_summary_stats(passes)
         
-        print("\n📊 RESUMEN DE DATOS PREPROCESADOS")
-        print("="*60)
+        print("\n RESUMEN DE DATOS PREPROCESADOS")
+        
         print(f"Total de pases: {stats['total_passes']}")
         print(f"Pases exitosos: {stats['successful_passes']}")
         print(f"Precisión: {stats['pass_accuracy']:.2f}%")
@@ -261,10 +261,10 @@ class PassPreprocessor:
             print(f"  - Mínima: {stats['min_pass_distance']:.2f}m")
             print(f"  - Máxima: {stats['max_pass_distance']:.2f}m")
         
-        print("="*60 + "\n")
+        
 
 
-def save_processed_passes(passes: pd.DataFrame, filename: str = 'data/processed/passes_clean.csv'):
+def save_processed_passes(passes: pd.DataFrame, filename: str = None):
     """
     Guarda pases preprocesados a disco.
     
@@ -272,14 +272,20 @@ def save_processed_passes(passes: pd.DataFrame, filename: str = 'data/processed/
         passes: DataFrame con pases preprocesados
         filename: Ruta del archivo de salida
     """
+    if filename is None:
+        # Usar ruta absoluta
+        current_file = os.path.abspath(__file__)
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(current_file)))
+        filename = os.path.join(project_root, 'data', 'processed', 'passes_clean.csv')
+    
     import os
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     passes.to_csv(filename, index=False)
-    print(f"💾 Datos guardados en: {filename}")
+    print(f" Datos guardados en: {filename}")
 
 if __name__ == "__main__":
     # Ejemplo de uso
-    print("🧪 Probando PassPreprocessor...\n")
+    print(" Probando PassPreprocessor...\n")
     
     import sys
     import os
@@ -302,7 +308,7 @@ if __name__ == "__main__":
     match_id = barcelona_matches.iloc[0]['match_id']
     match_info = barcelona_matches.iloc[0]
     
-    print(f"🎯 Partido: {match_info['home_team']} vs {match_info['away_team']}\n")
+    print(f" Partido: {match_info['home_team']} vs {match_info['away_team']}\n")
     
     # Cargar eventos
     events, _ = loader.load_match_data(match_id)
@@ -318,7 +324,7 @@ if __name__ == "__main__":
     save_processed_passes(passes_clean)
     
     # Mostrar muestra de datos
-    print("📋 Muestra de datos preprocesados:")
+    print(" Muestra de datos preprocesados:")
     columns_to_show = ['player', 'pass_recipient', 'team', 'minute', 
                        'pass_success', 'pass_distance', 'timestamp']
     available_cols = [col for col in columns_to_show if col in passes_clean.columns]

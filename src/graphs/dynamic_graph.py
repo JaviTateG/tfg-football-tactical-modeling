@@ -65,7 +65,7 @@ class DynamicPassGraph:
             
             current_start += (self.step_size * 60)
         
-        print(f"✅ Creadas {len(windows)} ventanas temporales")
+        print(f" Creadas {len(windows)} ventanas temporales")
         print(f"   - Tamaño de ventana: {self.window_size} min")
         print(f"   - Paso: {self.step_size} min")
         
@@ -82,7 +82,7 @@ class DynamicPassGraph:
         Returns:
             Lista de tuplas (inicio, fin, grafo)
         """
-        print(f"\n🔨 Construyendo grafos dinámicos...")
+        print(f"\n Construyendo grafos dinámicos...")
         
         if team:
             passes = passes[passes['team'] == team].copy()
@@ -103,7 +103,7 @@ class DynamicPassGraph:
                 
                 self.graphs.append((window_start, window_end, G))
         
-        print(f"✅ {len(self.graphs)} grafos construidos")
+        print(f" {len(self.graphs)} grafos construidos")
         
         return self.graphs
     
@@ -117,7 +117,7 @@ class DynamicPassGraph:
         if not self.graphs:
             raise ValueError("Primero debe construir los grafos dinámicos")
         
-        print("\n📊 Calculando métricas temporales...")
+        print("\n Calculando métricas temporales...")
         
         from src.graphs.network_metrics import NetworkMetrics
         
@@ -153,7 +153,7 @@ class DynamicPassGraph:
                 window_metrics['avg_clustering'] = np.mean(list(clustering.values()))
                 
             except Exception as e:
-                print(f"⚠️  Error calculando métricas para ventana {window_center:.1f}min: {e}")
+                print(f"  Error calculando métricas para ventana {window_center:.1f}min: {e}")
                 window_metrics['avg_betweenness'] = 0
                 window_metrics['avg_closeness'] = 0
                 window_metrics['avg_pagerank'] = 0
@@ -163,7 +163,7 @@ class DynamicPassGraph:
         
         self.metrics_timeline = pd.DataFrame(temporal_data)
         
-        print(f"✅ Métricas calculadas para {len(self.metrics_timeline)} ventanas")
+        print(f" Métricas calculadas para {len(self.metrics_timeline)} ventanas")
         
         return self.metrics_timeline
     
@@ -194,7 +194,7 @@ class DynamicPassGraph:
         significant_changes = np.where(changes > threshold)[0]
         change_times = times[significant_changes + 1]
         
-        print(f"\n🔍 Cambios tácticos detectados (métrica: {metric}, umbral: {threshold}):")
+        print(f"\n Cambios tácticos detectados (métrica: {metric}, umbral: {threshold}):")
         print(f"   Total: {len(change_times)} cambios")
         
         for i, time in enumerate(change_times, 1):
@@ -260,7 +260,7 @@ class DynamicPassGraph:
         
         for idx, metric in enumerate(metrics):
             if metric not in self.metrics_timeline.columns:
-                print(f"⚠️  Métrica '{metric}' no disponible")
+                print(f"  Métrica '{metric}' no disponible")
                 continue
             
             axes[idx].plot(self.metrics_timeline['window_center'], 
@@ -329,14 +329,14 @@ class DynamicPassGraph:
                                   first_half[metric].mean() * 100) if first_half[metric].mean() != 0 else 0
                 }
         
-        print("\n📊 COMPARACIÓN ENTRE MITADES")
-        print("="*60)
+        print("\n COMPARACIÓN ENTRE MITADES")
+        
         for metric, values in comparison.items():
             print(f"\n{metric.replace('_', ' ').title()}:")
             print(f"  Primera mitad: {values['first_half_avg']:.4f}")
             print(f"  Segunda mitad: {values['second_half_avg']:.4f}")
             print(f"  Diferencia: {values['difference']:+.4f} ({values['pct_change']:+.2f}%)")
-        print("="*60 + "\n")
+        
         
         return comparison
     
@@ -354,18 +354,18 @@ class DynamicPassGraph:
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         self.metrics_timeline.to_csv(filename, index=False)
         
-        print(f"💾 Métricas temporales exportadas a: {filename}")
+        print(f" Métricas temporales exportadas a: {filename}")
     
     def print_summary(self):
         """
         Imprime resumen de grafos dinámicos.
         """
         if not self.graphs:
-            print("⚠️  No hay grafos construidos")
+            print("  No hay grafos construidos")
             return
         
-        print("\n📊 RESUMEN DE GRAFOS DINÁMICOS")
-        print("="*60)
+        print("\n RESUMEN DE GRAFOS DINÁMICOS")
+        
         print(f"Ventanas temporales: {len(self.graphs)}")
         print(f"Tamaño de ventana: {self.window_size} minutos")
         print(f"Paso entre ventanas: {self.step_size} minutos")
@@ -378,12 +378,12 @@ class DynamicPassGraph:
                     avg = self.metrics_timeline[col].mean()
                     print(f"  - {col}: promedio = {avg:.4f}")
         
-        print("="*60 + "\n")
+        
 
 
 if __name__ == "__main__":
     # Ejemplo de uso
-    print("🧪 Probando DynamicPassGraph...\n")
+    print(" Probando DynamicPassGraph...\n")
     
     import sys
     import os
@@ -404,7 +404,7 @@ if __name__ == "__main__":
     match_id = barcelona_matches.iloc[0]['match_id']
     match_info = barcelona_matches.iloc[0]
     
-    print(f"🎯 Partido: {match_info['home_team']} vs {match_info['away_team']}\n")
+    print(f" Partido: {match_info['home_team']} vs {match_info['away_team']}\n")
     
     events, _ = loader.load_match_data(match_id)
     
@@ -420,7 +420,7 @@ if __name__ == "__main__":
     
     # Calcular métricas temporales
     temporal_metrics = dynamic_graph.calculate_temporal_metrics()
-    print("\n📋 Primeras ventanas temporales:")
+    print("\n Primeras ventanas temporales:")
     print(temporal_metrics.head(10))
     
     # Detectar cambios tácticos
@@ -433,5 +433,5 @@ if __name__ == "__main__":
     dynamic_graph.export_temporal_metrics()
     
     # Visualizaciones
-    print("\n📊 Generando visualizaciones...")
+    print("\n Generando visualizaciones...")
     dynamic_graph.visualize_temporal_evolution(['density', 'avg_clustering', 'num_edges'])

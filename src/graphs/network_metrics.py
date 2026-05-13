@@ -32,7 +32,7 @@ class NetworkMetrics:
         Returns:
             Diccionario con métricas de centralidad por jugador
         """
-        print("\n📊 Calculando métricas de centralidad...")
+        print("\n Calculando métricas de centralidad...")
         
         # Degree Centrality (in/out)
         in_degree = nx.in_degree_centrality(self.graph)
@@ -54,7 +54,7 @@ class NetworkMetrics:
         try:
             eigenvector = nx.eigenvector_centrality(self.graph, weight='weight', max_iter=1000)
         except:
-            print("⚠️  Eigenvector centrality no convergió, usando alternativa")
+            print("  Eigenvector centrality no convergió, usando alternativa")
             eigenvector = {node: 0 for node in self.graph.nodes()}
         
         self.metrics['centrality'] = {
@@ -66,7 +66,7 @@ class NetworkMetrics:
             'eigenvector': eigenvector
         }
         
-        print("✅ Métricas de centralidad calculadas")
+        print(" Métricas de centralidad calculadas")
         return self.metrics['centrality']
     
     def calculate_clustering_coefficient(self) -> Dict[str, float]:
@@ -76,7 +76,7 @@ class NetworkMetrics:
         Returns:
             Diccionario con coeficiente de clustering por jugador
         """
-        print("📊 Calculando coeficiente de clustering...")
+        print(" Calculando coeficiente de clustering...")
         
         # Convertir a grafo no dirigido para clustering
         G_undirected = self.graph.to_undirected()
@@ -85,7 +85,7 @@ class NetworkMetrics:
         self.metrics['clustering'] = clustering
         
         avg_clustering = sum(clustering.values()) / len(clustering)
-        print(f"✅ Clustering promedio: {avg_clustering:.4f}")
+        print(f" Clustering promedio: {avg_clustering:.4f}")
         
         return clustering
     
@@ -96,7 +96,7 @@ class NetworkMetrics:
         Returns:
             Diccionario con grados in/out por jugador
         """
-        print("📊 Calculando distribución de grados...")
+        print(" Calculando distribución de grados...")
         
         in_degree = dict(self.graph.in_degree())
         out_degree = dict(self.graph.out_degree())
@@ -109,7 +109,7 @@ class NetworkMetrics:
             'total_degree': total_degree
         }
         
-        print(f"✅ Grado promedio: {sum(total_degree.values()) / len(total_degree):.2f}")
+        print(f" Grado promedio: {sum(total_degree.values()) / len(total_degree):.2f}")
         
         return self.metrics['degree']
     
@@ -123,7 +123,7 @@ class NetworkMetrics:
         density = nx.density(self.graph)
         self.metrics['density'] = density
         
-        print(f"📊 Densidad del grafo: {density:.4f}")
+        print(f" Densidad del grafo: {density:.4f}")
         return density
     
     def identify_hubs(self, n: int = 5, metric: str = 'pagerank') -> List[str]:
@@ -149,7 +149,7 @@ class NetworkMetrics:
         
         hubs = sorted(scores.items(), key=lambda x: x[1], reverse=True)[:n]
         
-        print(f"\n🎯 Top {n} hubs (por {metric}):")
+        print(f"\n Top {n} hubs (por {metric}):")
         for i, (player, score) in enumerate(hubs, 1):
             print(f"   {i}. {player}: {score:.4f}")
         
@@ -162,18 +162,18 @@ class NetworkMetrics:
         Returns:
             Diccionario completo con todas las métricas
         """
-        print("\n" + "="*60)
-        print("🔬 CALCULANDO TODAS LAS MÉTRICAS DE RED")
-        print("="*60)
+        
+        print(" CALCULANDO TODAS LAS MÉTRICAS DE RED")
+        
         
         self.calculate_centrality_metrics()
         self.calculate_clustering_coefficient()
         self.calculate_degree_distribution()
         self.calculate_graph_density()
         
-        print("\n" + "="*60)
-        print("✅ TODAS LAS MÉTRICAS CALCULADAS")
-        print("="*60 + "\n")
+        
+        print(" TODAS LAS MÉTRICAS CALCULADAS")
+        
         
         return self.metrics
     
@@ -320,7 +320,7 @@ class NetworkMetrics:
         os.makedirs(os.path.dirname(filename), exist_ok=True)
         df.to_csv(filename, index=False)
         
-        print(f"💾 Métricas exportadas a: {filename}")
+        print(f" Métricas exportadas a: {filename}")
     
     def print_summary(self):
         """
@@ -331,8 +331,8 @@ class NetworkMetrics:
         
         df = self.create_metrics_dataframe()
         
-        print("\n📊 RESUMEN DE MÉTRICAS DE RED")
-        print("="*60)
+        print("\n RESUMEN DE MÉTRICAS DE RED")
+        
         print(f"Número de jugadores: {len(df)}")
         print(f"Densidad del grafo: {self.metrics['density']:.4f}")
         print(f"\nGrados promedio:")
@@ -342,12 +342,12 @@ class NetworkMetrics:
         print(f"\nTop 5 jugadores (PageRank):")
         for i, row in df.head(5).iterrows():
             print(f"  {i+1}. {row['player']}: {row['pagerank']:.4f}")
-        print("="*60 + "\n")
+        
 
 
 if __name__ == "__main__":
     # Ejemplo de uso
-    print("🧪 Probando NetworkMetrics...\n")
+    print(" Probando NetworkMetrics...\n")
     
     import sys
     import os
@@ -369,7 +369,7 @@ if __name__ == "__main__":
     match_id = barcelona_matches.iloc[0]['match_id']
     match_info = barcelona_matches.iloc[0]
     
-    print(f"🎯 Partido: {match_info['home_team']} vs {match_info['away_team']}\n")
+    print(f" Partido: {match_info['home_team']} vs {match_info['away_team']}\n")
     
     events, _ = loader.load_match_data(match_id)
     
@@ -392,7 +392,7 @@ if __name__ == "__main__":
     metrics_calculator.identify_hubs(n=5, metric='betweenness')
     
     # DataFrame de métricas
-    print("\n📋 DataFrame de métricas (top 10):")
+    print("\n DataFrame de métricas (top 10):")
     df_metrics = metrics_calculator.create_metrics_dataframe()
     print(df_metrics.head(10))
     
@@ -400,7 +400,7 @@ if __name__ == "__main__":
     metrics_calculator.export_metrics()
     
     # Visualizaciones
-    print("\n📊 Generando visualizaciones...")
+    print("\n Generando visualizaciones...")
     metrics_calculator.visualize_centrality_comparison()
     metrics_calculator.visualize_degree_distribution()
     metrics_calculator.visualize_correlation_matrix()
